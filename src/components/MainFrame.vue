@@ -1,14 +1,16 @@
-<script setup>
-
+<script>
+export default {
+    props: ['mainTitle', 'tailTitle']
+}
 </script>
 
 <template>
     <div class="background">
         <main class="main">
-            This is Main
+            {{ mainTitle }}
         </main>
         <tail class="tail">
-            This is Tail
+            {{ tailTitle }}
             main 컴포넌트를 옆으로 전환할 수 있는 거 만들기
         </tail>
     </div>

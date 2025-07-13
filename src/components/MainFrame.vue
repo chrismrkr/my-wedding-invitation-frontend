@@ -1,17 +1,40 @@
 <script>
 export default {
-    props: ['mainTitle', 'tailTitle']
+    props: ['mainTitle', 'tailTitle'],
+    data() {
+        return {
+            count : 100,
+        }
+    },
+    computed: {
+        computedNow() {
+            return Date.now();
+        }
+    },
+    methods: {
+        increaseCount() {
+            this.count += 1;
+        },
+        methodNow() {
+            return Date.now();
+        }
+
+    }
 }
 </script>
 
 <template>
     <div class="background">
         <main class="main">
-            {{ mainTitle }}
+            {{ mainTitle }} Count : {{ count }}
+            {{ methodNow() }}
         </main>
         <tail class="tail">
             {{ tailTitle }}
             main 컴포넌트를 옆으로 전환할 수 있는 거 만들기
+            <button @click="increaseCount">
+                클릭하기
+            </button>
         </tail>
     </div>
 </template>

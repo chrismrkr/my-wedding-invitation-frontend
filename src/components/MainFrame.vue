@@ -7,6 +7,13 @@ export default {
             screenCount : 3,
             condition: 'A'
         }
+    },
+    methods: {
+        slideContainer(event, isToLeft) {
+            debugger;
+            event.preventDefault();
+            
+        }
     }
 }
 </script>
@@ -14,17 +21,16 @@ export default {
 <template>
     <div class="background">
         <main class="main">
-            <div>
+            <div class="container">
                 {{ mainTitle }}
             </div>
-            <div class="">
-                <div class="direction left"></div>
-                <div class="direction right"></div>
+            <div class="slide">
+                <div @click="slideContainer(event, true)" class="direction left"></div>
+                <div @click="slideContainer(event, false)" class="direction right"></div>
             </div>
         </main>
         <tail class="tail">
             {{ tailTitle }}
-            main 컴포넌트를 옆으로 전환할 수 있는 거 만들기
         </tail>
     </div>
 </template>
@@ -46,10 +52,25 @@ export default {
     width: 95%;
     height: 90%;
     margin: 5px;
-    background-color: aqua;
+    
     
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main > .container {
+    height: 95%;
+}
+
+.main > .slide {
+    height: 5%;
+    padding: auto;
+    margin: 5px;;
+
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }

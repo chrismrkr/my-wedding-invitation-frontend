@@ -10,9 +10,12 @@ export default {
     },
     methods: {
         slideContainer(event, isToLeft) {
-            debugger;
             event.preventDefault();
-            
+            if(isToLeft) {
+                this.currentScreen = (this.currentScreen + this.screenCount - 1) % this.screenCount;
+            } else {
+                this.currentScreen = (this.currentScreen + 1) % this.screenCount;
+            }
         }
     }
 }
@@ -22,11 +25,11 @@ export default {
     <div class="background">
         <main class="main">
             <div class="container">
-                {{ mainTitle }}
+                {{ mainTitle }} {{ currentScreen }}
             </div>
             <div class="slide">
-                <div @click="slideContainer(event, true)" class="direction left"></div>
-                <div @click="slideContainer(event, false)" class="direction right"></div>
+                <div @click="(event) => slideContainer(event, true)" class="direction left"></div>
+                <div @click="(event) => slideContainer(event, false)" class="direction right"></div>
             </div>
         </main>
         <tail class="tail">

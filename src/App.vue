@@ -16,7 +16,7 @@ import MainFrame from './components/MainFrame.vue';
   <main>
     <TheWelcome />
   </main> -->
-  <MainFrame mainTitle="This is Main22" tailTitle="Powered by Kangok Kim"/>
+  <MainFrame mainTitle="This is Main" tailTitle="Powered by Kangok Kim"/>
   
 </template>
 

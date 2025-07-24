@@ -1,5 +1,8 @@
+
 <script>
+import GiftDelivery from './GiftDelivery.vue';
 export default {
+    components: { GiftDelivery },
     props: ['mainTitle', 'tailTitle'],
     data() {
         return {
@@ -25,7 +28,10 @@ export default {
     <div class="background">
         <main class="main">
             <div class="container">
-                {{ mainTitle }} {{ currentScreen }}
+                <GiftDelivery v-if="currentScreen === 0" />
+                <div v-else>
+                    {{ mainTitle }} {{ currentScreen }}
+                </div>
             </div>
             <div class="slide">
                 <div @click="(event) => slideContainer(event, true)" class="direction left"></div>
@@ -46,8 +52,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 300px;
+    width: 1000px;
+    height: 680px;
     background-color: antiquewhite;
 }
 
